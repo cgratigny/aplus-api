@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    aplus-api (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aplus-api!
+
+BUNDLED WITH
+   1.16.2
