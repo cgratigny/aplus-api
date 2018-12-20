@@ -18,9 +18,33 @@ module AplusApi
         AplusApi::Student.find(data[:id])
       end
 
+      def update(data)
+        AplusApi::Student.create(data)
+      end
+
       def find(id)
         AplusApi::Student.new(AplusApi::Connection.new.get("student/" + id.to_s))
       end
+
+    end
+
+    def add_photo(photo_url)
+      AplusApi::Photo.create(self, photo_url)
+    end
+
+    def add_tag(tag)
+      AplusApi::Tag.create(self, tag)
+    end
+
+    def tags
+      AplusApi::Tag.by_student(self)
+    end
+
+    def photo
+      AplusApi::Photo.find_by_student(self)
+    end
+
+    def delete
 
     end
 

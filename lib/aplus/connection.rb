@@ -11,6 +11,7 @@ module AplusApi
     def post(path, data)
       response = self.class.post(self.class.base_uri + "/" + path, body: data.to_json, headers: headers)
       puts response.inspect
+      puts response.request.inspect
       return response.code == "200"
     end
 

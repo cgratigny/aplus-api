@@ -4,13 +4,21 @@ module AplusApi
     class << self
 
       def create(student, tag)
-        AplusApi::Connection.new.post("student/" + student.id + "/addTag", tag)
+        AplusApi::Connection.new.post("student/" + student.id.to_s + "/addTag", tag.to_s)
       end
 
-    end
+      def update(student, tag)
+        AplusApi::Tag.create(student, tag)
+      end
 
-    def update
-      AplusApi::Connection.new.post("students")
+      def by_student(student)
+        AplusApi::Connection.new.get("student/" + student.id + "/tags")
+      end
+
+      def update_all(student, tags)
+        AplusApi::Connection.new.post("student/" + student.id + "/tags", tags)
+      end
+
     end
 
   end
