@@ -3,8 +3,8 @@ module AplusApi
 
     class << self
 
-      def new
-        AplusApi::Connection.new.put("students")
+      def create(student, tag)
+        AplusApi::Connection.new.post("student/" + student.id + "/addTag", tag)
       end
 
     end

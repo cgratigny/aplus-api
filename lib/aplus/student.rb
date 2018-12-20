@@ -6,7 +6,11 @@ module AplusApi
     class << self
 
       def all
-        AplusApi::Connection.new.get("students")
+        students = []
+        AplusApi::Connection.new.get("students").each do |record|
+          students << AplusApi::Student.new(record)
+        end
+        students
       end
 
       def create(data)

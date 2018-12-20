@@ -3,8 +3,8 @@ module AplusApi
     include HTTParty
     base_uri 'https://attendcoreapi.aplusattendance.com/v1/'
 
-    def get(path)
-      response = self.class.get(self.class.base_uri + "/" + path, params: {}, headers: headers)
+    def get(path, params = {})
+      response = self.class.get(self.class.base_uri + "/" + path, query: params, headers: headers)
       JSON.parse(response.body)
     end
 
