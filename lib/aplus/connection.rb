@@ -32,5 +32,3 @@ module AplusApi
 
   end
 end
-
-HTTParty.post("https://attendcoreapi.aplusattendance.com/v1/student", body: { id: "string2", firstName: "string2", lastName: "string3", udf1: "string4", udf2: "string5", udf3: "string6", udf4: "string7", udf5: "string8", udf6: "string9" }, :headers=>{"Authorization"=>"4fKd_rTT~RLoJ*TfrkqVa6wMQw*Ql4Uq"})

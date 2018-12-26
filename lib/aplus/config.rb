@@ -10,6 +10,10 @@ module AplusApi
         @aplus_api_key = config[:api_key]
       end
 
+      def enabled?
+        false unless @aplus_api_key
+      end
+
       def api_key
         @aplus_api_key
       end
