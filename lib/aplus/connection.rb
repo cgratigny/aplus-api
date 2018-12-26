@@ -26,7 +26,7 @@ module AplusApi
     end
 
     def headers
-      # raise "Authentication needed." unless AplusApi::Config.api_key.present?
+      raise "Authentication needed." unless AplusApi::Config.api_key.present?
       { "Authorization" => AplusApi::Config.api_key, "content-type" => "application/json"}
     end
 

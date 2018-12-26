@@ -12,7 +12,7 @@ require 'aplus/tag'
 module AplusApi
   def self.configure(config={})
    AplusApi::Config.configure(config)
- end
+  end
 end
 
 # also make this available all lowercase
