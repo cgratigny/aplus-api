@@ -34,7 +34,7 @@ module AplusApi
     end
 
     def delete
-      AplusApi::Connection.new.delete("students")
+      AplusApi::Connection.new.delete("student/" + student.id + "/photo")
     end
 
   end

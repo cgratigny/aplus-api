@@ -5,7 +5,17 @@ module AplusApi
 
     def get(path, params = {})
       response = self.class.get(self.class.base_uri + "/" + path, query: params, headers: headers)
-      JSON.parse(response.body)
+      puts response.inspect
+      puts response.request.inspect
+      if response.code == "200"
+        JSON.parse(response.body)
+      else
+        raise "HTTP Response was " + response.code.to_s
+      end
+    end
+
+    def delete(path, params = {})
+      response = self.class.delete(self.class.base_uri + "/" + path, query: params, headers: headers)
     end
 
     def post(path, data)

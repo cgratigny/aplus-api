@@ -44,10 +44,6 @@ module AplusApi
       AplusApi::Photo.find_by_student(self)
     end
 
-    def delete
-
-    end
-
     def save
       AplusApi::Connection.new.post("student", self)
     end
