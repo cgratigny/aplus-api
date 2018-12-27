@@ -1,7 +1,13 @@
 module AplusApi
   class Student
     include ActiveModel::Model
+    include ActiveModel::Validations
+
     attr_accessor :id, :firstName, :lastName, :udf1, :udf2, :udf3, :udf4, :udf5, :udf6, :tags, :photoLastUpdateUtc, :photoMD5
+
+    validates :id, presence: true
+    validates :firstName, presence: true
+    validates :lastName, presence: true
 
     class << self
 
@@ -24,6 +30,15 @@ module AplusApi
 
       def find(id)
         AplusApi::Student.new(AplusApi::Connection.new.get("student/" + id.to_s))
+      end
+
+      def find_or_create_by_id(id)
+        begin
+          student = AplusApi::Student.find(id)
+        rescue
+          student = AplusApi::Student.new({id: id})
+        end
+        student
       end
 
     end

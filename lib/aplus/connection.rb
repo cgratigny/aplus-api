@@ -7,7 +7,7 @@ module AplusApi
       response = self.class.get(self.class.base_uri + "/" + path, query: params, headers: headers)
       puts response.inspect
       puts response.request.inspect
-      if response.code == "200"
+      if response.code == 200
         JSON.parse(response.body)
       else
         raise "HTTP Response was " + response.code.to_s
@@ -22,7 +22,7 @@ module AplusApi
       response = self.class.post(self.class.base_uri + "/" + path, body: data.to_json, headers: headers)
       puts response.inspect
       puts response.request.inspect
-      return response.code == "200"
+      return response.code == 200
     end
 
     def headers
