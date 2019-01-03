@@ -23,10 +23,10 @@ module AplusApi
       end
 
       def working_url?(url_str)
+        require 'open-uri'
         url = URI.parse(url_str)
-        Net::HTTP.start(url.host, url.port) do |http|
-          http.head(url.request_uri).code == '200'
-        end
+        result = open(url).status
+        result[0] == "200"
       rescue
         false
       end
