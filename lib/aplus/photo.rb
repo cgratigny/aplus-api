@@ -6,7 +6,7 @@ module AplusApi
       def create(student, photo_url)
         return false unless AplusApi::Photo.working_url?(photo_url)
         encoded_photo = AplusApi::Photo.encode_photo(photo_url)
-        AplusApi::Connection.new.post("student/" + student.id + "/photo", encoded_photo)
+        AplusApi::Connection.new.post("student/" + student.id.to_s + "/photo", encoded_photo)
       end
 
       def update(student, photo_url)
@@ -19,12 +19,12 @@ module AplusApi
       end
 
       def find_by_student(student)
-        AplusApi::Connection.new.get("student/" + student.id + "/photo")
+        AplusApi::Connection.new.get("student/" + student.id.to_s + "/photo")
       end
 
       def working_url?(url_str)
-        require 'open-uri'
         url = URI.parse(url_str)
+        require 'open-uri'
         result = open(url).status
         result[0] == "200"
       rescue
@@ -34,7 +34,7 @@ module AplusApi
     end
 
     def delete
-      AplusApi::Connection.new.delete("student/" + student.id + "/photo")
+      AplusApi::Connection.new.delete("student/" + student.id.to_s + "/photo")
     end
 
   end
