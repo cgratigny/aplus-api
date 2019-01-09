@@ -25,7 +25,11 @@ module AplusApi
       def working_url?(url_str)
         url = URI.parse(url_str)
         require 'open-uri'
-        result = open(url).status
+        begin
+          result = open(url).status
+        rescue
+          return false
+        end
         result[0] == "200"
       rescue
         false

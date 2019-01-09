@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "aplus-api".freeze
-  s.version = "0.0.20"
+  s.version = "0.0.21"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.metadata = { "source_code_uri" => "https://github.com/cgratigny/aplus-api" } if s.respond_to? :metadata=
