@@ -6,7 +6,7 @@ module AplusApi
     class << self
       def all(starting_at = 1.week.ago)
         scans = []
-        AplusApi::Connection.new.get("scans", { "fromDateUtc" => starting_at.to_date.to_s }).each do |record|
+        AplusApi::Connection.new.get("scans", { "fromDateUtc" => starting_at.to_s }).each do |record|
           scans << AplusApi::Scan.new(record)
         end
         scans
