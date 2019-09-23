@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Chris Gratigny".freeze]
   s.date = "2018-12-28"
   s.description = "Gem to interface with the APlus Attendance API.".freeze
-  s.email = "chris@progetta.eam".freeze
+  s.email = "chris@progetta.team".freeze
   s.files = ["lib/aplus-api.rb".freeze]
   s.homepage = "https://github.com/cgratigny/aplus-api".freeze
   s.licenses = ["MIT".freeze]
