@@ -5,8 +5,6 @@ module AplusApi
 
     def get(path, params = {})
       response = self.class.get(self.class.base_uri + "/" + path, query: params, headers: headers)
-      puts response.inspect
-      puts response.request.inspect
       if response.code == 200
         JSON.parse(response.body)
       else
@@ -20,8 +18,6 @@ module AplusApi
 
     def post(path, data)
       response = self.class.post(self.class.base_uri + "/" + path, body: data.to_json, headers: headers)
-      puts response.inspect
-      puts response.request.inspect
       return response.code == 200
     end
 
